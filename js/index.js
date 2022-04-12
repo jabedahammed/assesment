@@ -13,32 +13,37 @@ document.addEventListener('DOMContentLoaded', function(){
                         }
                         return false;
                     })
-                    let itemclass = document.getElementById("main-body")
-                    let str = ""
-                    finalData.forEach((item,i)=>{
-                        str += `<div class="item-child">
-                            <div class="base-img"><img src="./images/${item.imageUrl}" /></div>
-                            <div class="description">
-                                <h2>${item.title}</h2>
-                                <div>${item.intro}</div>
-                                <div class="icon-svg">
-                                    <div>
-                                        <img src="icons/clock-solid.svg" alt="clock-soldi">
-                                        <span>${item.publishedOn}</span>
-                                    </div>
-                                    <div>
-                                        <img src="icons/comment-alt-regular.svg" alt="comment-alt-regular">
-                                        <span>${item.numberOfComment}</span>
+                    if(finalData){
+                        let itemclass = document.getElementById("main-body")
+                        let str = ""
+                        finalData.forEach((item,i)=>{
+                            str += `<div class="item-child">
+                                <div class="base-img"><img src="./images/${item.imageUrl}" /></div>
+                                <div class="description">
+                                    <h2>${item.title}</h2>
+                                    <div>${item.intro}</div>
+                                    <div class="icon-svg">
+                                        <div>
+                                            <img src="icons/clock-solid.svg" alt="clock-soldi">
+                                            <span>${item.publishedOn}</span>
+                                        </div>
+                                        <div>
+                                            <img src="icons/comment-alt-regular.svg" alt="comment-alt-regular">
+                                            <span>${item.numberOfComment}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            
-                        </div>`
-                    })
-                    itemclass.innerHTML = str;
+                                
+                                
+                            </div>`
+                        })
+                        itemclass.innerHTML = str;
+                    }
+                    else{
+                        alert("Sorry some error happened in api")
+                    }
                 }else{
-                    alert("Sorry some unknown error happened")
+                    alert("Sorry some error happened in api")
                 }
                 
             }).catch(err=>{
