@@ -1,10 +1,11 @@
+const LANDING_COLLECTION_TYPE = "landing"
 document.addEventListener('DOMContentLoaded', function(){
-    fetch("./data/first_collection.json").then(res=>res.json()).then(res=>{
+    fetch("./api/collection/collectiontypes.json").then(res=>res.json()).then(res=>{
         let collection = res.find(item=>{
-            return item.collectiontype == "landing"
+            return item.collectiontype == LANDING_COLLECTION_TYPE
         })
         if(collection){
-            fetch("./data/data.json").then(res=>res.json()).then(res=>{
+            fetch("./api/collection/data.json").then(res=>res.json()).then(res=>{
                 if(res && Array.isArray(res)){
                     let finalData = res.filter(item=>{
                         if(item.collectionid == collection.collectionid){
