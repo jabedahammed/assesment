@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function(){
                         }
                         return false;
                     })
-                    
                     let itemclass = document.getElementById("main-body")
                     let str = ""
                     finalData.forEach((item,i)=>{
